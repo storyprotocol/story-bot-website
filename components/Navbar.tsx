@@ -10,7 +10,7 @@ export default function Navbar() {
             <a
               aria-label="Home"
               href="/"
-              className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#facc15] to-[#988cfc] animate-gradient-shine"
+              className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-300 animate-gradient-shine"
               style={{ fontFamily: "Roboto, sans-serif" }}
             >
               Story bot
@@ -20,7 +20,7 @@ export default function Navbar() {
           <div className="flex items-center gap-8">
             <a
               className="text-sm/6 font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white"
-              href="https://github.com/storyprotocol/artcast"
+              href="https://github.com/storyprotocol/story-bot-website"
               target="_blank"
             >
               <div className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-100 ring-1 ring-zinc-200 dark:bg-zinc-800 dark:ring-white/25">

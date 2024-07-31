@@ -14,6 +14,7 @@ export default function HomepageForm() {
   const { data: session } = useSession();
   const [discordUsername, setDiscordUsername] = useState("");
   const [twitterUsername, setTwitterUsername] = useState("");
+  const [finished, setFinished] = useState(true);
   const [loading, setLoading] = useState(false);
 
   // Retrieve usernames from local storage on component mount
@@ -58,13 +59,17 @@ export default function HomepageForm() {
       });
       const result = await response.json();
       if (result.success) {
-        alert("Usernames saved successfully!");
+        setFinished(true);
       } else {
-        alert("Failed to save usernames.");
+        alert(
+          "Failed to save usernames. Please contact us in the Story Discord server."
+        );
       }
     } catch (error) {
       console.error("Error saving usernames:", error);
-      alert("An error occurred while saving usernames.");
+      alert(
+        "Failed to save usernames. Please contact us in the Story Discord server."
+      );
     } finally {
       setLoading(false);
     }
@@ -106,22 +111,29 @@ export default function HomepageForm() {
           </div>
         </CardContent>
         <CardFooter className="flex flex-col items-center space-y-2">
-          {session && (
+          {session && discordUsername && twitterUsername && !finished && (
+            <button
+              onClick={handleSubmit}
+              className="w-full py-2 px-4 bg-green-600 text-white rounded-md"
+              disabled={loading}
+            >
+              {loading ? "Saving..." : "Save"}
+            </button>
+          )}
+          {finished && (
             <>
-              <button
-                onClick={handleSubmit}
-                className="w-full py-2 px-4 bg-blue-600 text-white rounded-md"
-                disabled={loading}
-              >
-                {loading ? "Saving..." : "Save"}
-              </button>
-              <button
-                onClick={handleSignOut}
-                className="w-full py-2 px-4 bg-red-600 text-white rounded-md"
-              >
-                Sign out
-              </button>
+              <p className="text-center">
+                Done! Go back to the Story Discord to see your new role.
+              </p>
             </>
+          )}
+          {session && (
+            <button
+              onClick={handleSignOut}
+              className="w-full py-2 px-4 bg-red-600 text-white rounded-md"
+            >
+              Sign out
+            </button>
           )}
         </CardFooter>
       </Card>
