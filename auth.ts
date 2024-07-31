@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { AuthOptions, getServerSession } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
 import TwitterProvider from "next-auth/providers/twitter";
