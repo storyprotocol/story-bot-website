@@ -29,12 +29,18 @@ export default function HomepageForm() {
   // Update local storage when session data changes
   useEffect(() => {
     if (session) {
+      //@ts-ignore
       if (session.user?.discordUsername) {
+        //@ts-ignore
         setDiscordUsername(session.user.discordUsername);
+        //@ts-ignore
         localStorage.setItem("discordUsername", session.user.discordUsername);
       }
+      //@ts-ignore
       if (session.user?.twitterUsername) {
+        //@ts-ignore
         setTwitterUsername(session.user.twitterUsername);
+        //@ts-ignore
         localStorage.setItem("twitterUsername", session.user.twitterUsername);
       }
     }
