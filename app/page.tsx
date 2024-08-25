@@ -16,6 +16,7 @@ export default function HomepageForm() {
   const [twitterUsername, setTwitterUsername] = useState("");
   const [clickedFollowStory, setClickedFollowStory] = useState(false);
   const [clickedJoinTelegram, setClickedJoinTelegram] = useState(false);
+  const [clickedAddIp, setClickedAddIp] = useState(false);
   const [finished, setFinished] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -125,6 +126,23 @@ export default function HomepageForm() {
               <button
                 type="button"
                 className={`w-full py-2 px-4 border ${
+                  clickedAddIp ? "bg-black text-white" : "border-gray-300"
+                } rounded-md`}
+                onClick={() => {
+                  window.open("https://twitter.com/", "_blank");
+                  setClickedAddIp(true);
+                }}
+                disabled={clickedAddIp}
+              >
+                Add ꧁IP꧂ to your Twitter/X name
+              </button>
+            </div>
+
+            <div className="flex items-center gap-[10px]">
+              <p className="min-w-[60px] font-bold">Step 3</p>
+              <button
+                type="button"
+                className={`w-full py-2 px-4 border ${
                   twitterUsername
                     ? "bg-[#14171A] text-white"
                     : "border-gray-300"
@@ -138,7 +156,7 @@ export default function HomepageForm() {
               </button>
             </div>
             <div className="flex items-center gap-[10px]">
-              <p className="min-w-[60px] font-bold">Step 3</p>
+              <p className="min-w-[60px] font-bold">Step 4</p>
               <button
                 type="button"
                 className={`w-full py-2 px-4 border ${
@@ -157,7 +175,7 @@ export default function HomepageForm() {
               </button>
             </div>
             <div className="flex items-center gap-[10px]">
-              <p className="min-w-[60px] font-bold">Step 4</p>
+              <p className="min-w-[60px] font-bold">Step 5</p>
               <button
                 type="button"
                 className={`w-full py-2 px-4 border ${
@@ -185,6 +203,7 @@ export default function HomepageForm() {
             twitterUsername &&
             clickedFollowStory &&
             clickedJoinTelegram &&
+            clickedAddIp &&
             !finished && (
               <button
                 onClick={handleSubmit}
