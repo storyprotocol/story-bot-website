@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     const discordId = discordData.id;
 
     // Use Twitter access token to verify Twitter user
-    const twitterResponse = await fetch(`https://api.twitter.com/2/users/me`, {
+    const twitterResponse = await fetch(`https://api.twitter.com/2/me`, {
       headers: {
         Authorization: `Bearer ${twitterAccessToken}`,
       },
