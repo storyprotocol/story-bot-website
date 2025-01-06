@@ -129,7 +129,7 @@ export default function HomepageForm() {
                   clickedAddIp ? "bg-black text-white" : "border-gray-300"
                 } rounded-md`}
                 onClick={() => {
-                  window.open("https://twitter.com/", "_blank");
+                  window.open("https://x.com/", "_blank");
                   setClickedAddIp(true);
                 }}
                 disabled={clickedAddIp}
